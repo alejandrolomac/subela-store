@@ -41,15 +41,15 @@ class ProductController extends Controller
   
         request()->validate(Product::$rules);
 
-        $iduser = Auth::id(); 
+        $user = Auth::user(); 
         $product = Product::create([
             'title' => $request->title,
-            'user_id' => $iduser,
+            'user_id' => $user->id,
             'image' => $path,
             'description' => $request->description,
             'price' => $request->price,
             'offer' => $request->offer,
-            'inventory' => $request->inventory
+            'inventory' => $request->inventory,
         ]);
 
         return redirect()->route('products.index')
