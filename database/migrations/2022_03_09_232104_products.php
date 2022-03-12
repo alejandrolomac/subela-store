@@ -6,16 +6,12 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+
     public function up()
     {
         Schema::create('products', function(Blueprint $table) {
             $table->bigIncrements('id');
-            $table->foreign('user')->references('id')->on('users'); 
+            $table->foreignId('user_id')->constrained('users')->nullable(); 
 
             $table->string('title');
             $table->string('image')->nullable();
@@ -28,11 +24,6 @@ return new class extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         //
