@@ -13,7 +13,7 @@
             <div class="col">
                 <div class="card card-anim" data-bs-toggle="modal" data-bs-target="#productModal{{ $product->id }}">
                     @if ($product->image)
-                        <img src="{{ $product->image }}" class="card-img-top">
+                        <img src="{{Storage::disk('s3')->url($product->image)}}" class="card-img-top">
                     @else
                         <img src="images/default.jpg" />
                     @endif
@@ -40,7 +40,7 @@
                             <div class="row">
                                 <div class="col-12 col-md-5">
                                     @if ($product->image)
-                                        <img src="{{ $product->image }}" class="card-img-top">
+                                        <img src="{{Storage::disk('s3')->url($product->image)}}" class="card-img-top">
                                     @else
                                         <img src="images/default.jpg" />
                                     @endif

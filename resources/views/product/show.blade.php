@@ -16,9 +16,9 @@
                         <div class="row">
                             <div class="col-12 col-md-5">
                                 @if ($product->image)
-                                    <img src="{{ $product->image }}" class="card-img-top">
+                                    <img src="{{Storage::disk('s3')->url($product->image)}}" class="card-img-top">
                                 @else
-                                    <img src="images/default.jpg" />
+                                    <img src="{{ asset('images/default.jpg') }}" />
                                 @endif
                             </div>
                             <div class="col-12 col-md-7">
