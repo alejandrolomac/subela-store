@@ -11,7 +11,7 @@ return new class extends Migration
     {
         Schema::create('products', function(Blueprint $table) {
             $table->bigIncrements('id');
-            $table->foreignId('user_id')->constrained('users')->nullable(); 
+            $table->foreignId('user_id')->constrained('users'); 
 
             $table->string('title');
             $table->string('image')->nullable();
