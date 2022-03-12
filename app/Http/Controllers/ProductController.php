@@ -45,6 +45,8 @@ class ProductController extends Controller
             $file = $request->file('image');
             $path = "s-folter/".time().$file->getClientOriginalName();
             \Storage::disk("s3")->put($path, file_get_contents($file));
+        }else {
+            $path = '';
         }
   
         request()->validate(Product::$rules);
