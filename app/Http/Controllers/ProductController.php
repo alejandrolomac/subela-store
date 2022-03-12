@@ -16,17 +16,6 @@ class ProductController extends Controller
         return view('product.index', compact('products'))
             ->with('i', (request()->input('page', 1) - 1) * $products->perPage());
     }
-
-    // public function imageUpload(Request $request)
-    // {  
-    //     if ($request->has('image')) {
-    //         $file = $request->file('image');
-    //         $path = "s-folter/".time().$file->getClientOriginalName();
-    //         \Storage::disk("s3")->put($path, file_get_contents($file));
-    //     }
-
-    //     echo "file upload";
-    // }
     
     public function create()
     {
@@ -51,11 +40,9 @@ class ProductController extends Controller
   
         request()->validate(Product::$rules);
 
-        //$request->all()
-        $urlimage = Storage::url('file.jpg');
         $product = Product::create([
             'title' => $request->title,
-            'image' => $path,
+            'image' => $path ?? '',
             'description' => $request->description,
             'price' => $request->price,
             'offer' => $request->offer,
@@ -88,7 +75,7 @@ class ProductController extends Controller
         $product->update($request->all());
 
         return redirect()->route('products.index')
-            ->with('success', 'Product updated successfully');
+            ->with('success', 'Producto actualizado correctamente');
     }
 
     public function destroy($id)
@@ -96,6 +83,6 @@ class ProductController extends Controller
         $product = Product::find($id)->delete();
 
         return redirect()->route('products.index')
-            ->with('success', 'Product deleted successfully');
+            ->with('success', 'Producto eliminado');
     }
 }
