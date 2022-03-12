@@ -26,6 +26,7 @@
                             @endif
                         </h3>
                         <h2 class="card-title">{{ $product->title }}</h2>
+                        <p>{{ $product->user_id }}</p>
                     </div>
                 </div>
             </div>
