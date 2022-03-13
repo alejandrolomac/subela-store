@@ -61,7 +61,7 @@ class ProductController extends Controller
         $product->price = $request->input('price');
         $product->offer = $request->input('offer');
         $product->inventory = $request->input('inventory');
-        $product.save();
+        $product->save();
 
         return redirect()->route('products.index')
             ->with('success', 'El producto se agrego correctamente.');
