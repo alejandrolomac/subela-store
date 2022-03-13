@@ -31,7 +31,7 @@
             {{ Form::text('inventory', $product->inventory, ['class' => 'form-control' . ($errors->has('inventory') ? ' is-invalid' : ''), 'placeholder' => 'Inventory']) }}
             {!! $errors->first('inventory', '<div class="invalid-feedback">:message</div>') !!}
 
-            {{ Form::hidden('user_id', $product->user_id, $value = Auth::id()) }}
+            {{ Form::hidden('user_id', $product->user_id, Auth::id()) }}
             <input id="asd" name="asd" type="text" value='{{Auth::id()}}'>
         </div>
 
