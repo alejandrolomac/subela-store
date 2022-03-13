@@ -44,7 +44,7 @@ class ProductController extends Controller
         $user = Auth::user(); 
         $product = Product::create([
             'title' => $request->title,
-            'user_id' => $user->id,
+            'user_id' => $user,
             'image' => $path,
             'description' => $request->description,
             'price' => $request->price,
