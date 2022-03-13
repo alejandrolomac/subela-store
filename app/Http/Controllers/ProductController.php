@@ -21,9 +21,9 @@ class ProductController extends Controller
     //         ->with('i', (request()->input('page', 1) - 1) * $products->perPage());
     // }
 
-    public function index()
+    public function index() 
     {
-        $products= DB::table('products')->where('user_id', Auth::user());
+        $products= DB::table('products')->where('user_id', Auth::user())->get();
 
         return view('product.index', compact('products'));
     }
