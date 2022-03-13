@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\save;
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
@@ -22,7 +23,7 @@ class ProductController extends Controller
 
     public function index()
     {
-        $products['products'] = Product::where('user_id', Auth::user())->get();
+        $products= DB::table('products')->where('user_id', Auth::user())->get();
 
         return view('product.index')->with($products);
     }
