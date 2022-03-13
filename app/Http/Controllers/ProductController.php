@@ -53,13 +53,13 @@ class ProductController extends Controller
         // ]);
 
         $product = new Product;
-        $product->title => $request->input('title');
-        $product->user_id => $request->input('user_id') ?? Auth::id();
-        $product->image => $path;
-        $product->description => $request->input('description');
-        $product->price => $request->input('price');
-        $product->offer => $request->input('offer');
-        $product->inventory => $request->input('inventory');
+        $product->title = $request->input('title');
+        $product->user_id = $request->input('user_id') ?? Auth::id();
+        $product->image = $path;
+        $product->description = $request->input('description');
+        $product->price = $request->input('price');
+        $product->offer = $request->input('offer');
+        $product->inventory = $request->input('inventory');
         $product.save();
 
         return redirect()->route('products.index')
