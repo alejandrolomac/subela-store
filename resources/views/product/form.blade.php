@@ -32,7 +32,7 @@
             {!! $errors->first('inventory', '<div class="invalid-feedback">:message</div>') !!}
         </div>
 
-        {{ Form::text('author', $user_id, '', array("class" => "form-control")) }}
+        {{ Form::text('user_id', $user_id, '', array("class" => "form-control")) }}
         {{ Form::hidden('user_id', $user_id) }}
 
     </div>
