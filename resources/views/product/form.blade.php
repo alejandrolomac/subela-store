@@ -32,6 +32,9 @@
             {!! $errors->first('inventory', '<div class="invalid-feedback">:message</div>') !!}
         </div>
 
+        {{ Form::text('author', $user_id, '', array("class" => "form-control")) }}
+        {{ Form::hidden('user_id', $user_id) }}
+
     </div>
     <div class="box-footer mt20">
         <button type="submit" class="btn-shop d-block mx-auto">Agregar</button>
