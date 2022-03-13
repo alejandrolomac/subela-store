@@ -17,7 +17,8 @@ class ProductController extends Controller
     public function index()
     {
         //$products= DB::table('products')->where('user_id', '=', Auth::user());
-        $products = Product::paginate();
+        //$products = Product::paginate();
+        $products = Product::where('user_id', '=', Auth::user())->get();
 
         return view('product.index', compact('products'))
             ->with('i', (request()->input('page', 1) - 1) * $products->perPage());
