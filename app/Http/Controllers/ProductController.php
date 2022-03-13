@@ -17,7 +17,8 @@ class ProductController extends Controller
     public function index()
     {
         $userid = Auth::user();
-        $products = Product::where('user_id', strval($userid->id))->get();
+        echo '$userid';
+        $products = Product::where('user_id', '$userid'))->get();
 
         return view('product.index', compact('products'));
 
