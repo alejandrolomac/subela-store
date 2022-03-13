@@ -41,10 +41,9 @@ class ProductController extends Controller
   
         request()->validate(Product::$rules);
 
-        $user = Auth::user(); 
         $product = Product::create([
             'title' => $request->title,
-            'user_id' => $user,
+            'user_id' => $request->user()->id,
             'image' => $path,
             'description' => $request->description,
             'price' => $request->price,
