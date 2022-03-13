@@ -17,7 +17,9 @@
         
         @foreach ($products as $product)
             <div class="card card-anim mb-2 p-3 wrap-message">
-                
+                <h4 class="m-0 pb-1">{{ $product->title }}</h4>
+                <p class="m-0">Precio: {{ $product->price }}</p>
+                <p class="m-0 mb-2">Quedan {{ $product->inventory }} en inventario</p>
                 <form action="{{ route('products.destroy',$product->id) }}" method="POST">
                     <a class="btn btn-sm btn-primary " href="{{ route('products.show',$product->id) }}"><i class="fa fa-fw fa-eye"></i> Visualizar</a>
                     <a class="btn btn-sm btn-success" href="{{ route('products.edit',$product->id) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>

@@ -14,19 +14,14 @@ use Illuminate\Support\Facades\DB;
 class ProductController extends Controller
 {
 
-    // public function index()
-    // {
-    //     $products = Product::paginate();
-
-    //     return view('product.index', compact('products'))
-    //         ->with('i', (request()->input('page', 1) - 1) * $products->perPage());
-    // }
-
     public function index()
     {
-        $products= DB::table('products')->where('user_id', '=', Auth::user());
-        
-        return view('product.index', compact('products'));
+        //$products= DB::table('products')->where('user_id', '=', Auth::user());
+        $products = Product::paginate();
+
+        return view('product.index', compact('products'))
+            ->with('i', (request()->input('page', 1) - 1) * $products->perPage());
+
     }
     
     public function create()
