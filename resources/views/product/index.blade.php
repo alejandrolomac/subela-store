@@ -1,7 +1,7 @@
 @extends('layouts.template')
 
 @section('template_title')
-    Product
+    Productos
 @endsection
 
 @section('content')
