@@ -31,13 +31,10 @@ class Product extends Model
 
     protected $perPage = 20;
 
-    /**
-     * Attributes that should be mass-assignable.
-     *
-     * @var array
-     */
     protected $fillable = ['title','image','description','price','offer','inventory'];
 
-
+    public function user(){
+      return $this->hasOne(User::class); 
+    }
 
 }
