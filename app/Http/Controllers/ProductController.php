@@ -7,7 +7,7 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\save();
+use App\Http\Controllers\save;
 
 class ProductController extends Controller
 {
