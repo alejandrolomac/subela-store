@@ -25,7 +25,7 @@ class ProductController extends Controller
     {
         $products= DB::table('products')->where('user_id', Auth::user());
         
-        return view('product.index', ['products' => $products]);
+        return view('product.index', compact('products'));
     }
     
     public function create()
