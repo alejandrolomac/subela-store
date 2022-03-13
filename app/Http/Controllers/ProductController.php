@@ -41,7 +41,15 @@ class ProductController extends Controller
   
         request()->validate(Product::$rules);
 
-        $product = Product::create($request->all());
+        $product = Product::create([
+            'title' => $request->title,
+            'user_id' => $request->user_id,
+            'image' => $path ?? '',
+            'description' => $request->description,
+            'price' => $request->price ?? 0,
+            'offer' => $request->offer ?? 0,
+            'inventory' => $request->inventory ?? 1,
+        ]);
 
         return redirect()->route('products.index')
             ->with('success', 'El producto se agrego correctamente.');

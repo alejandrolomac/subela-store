@@ -12,15 +12,15 @@ return new class extends Migration
         Schema::create('products', function(Blueprint $table) {
             $table->bigIncrements('id');
 
-            $table->unsignedBigInteger('user_id');
-            $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->foreignId('user_id')->references('id')->on('users')->nullable()->onDelete('cascade');
 
             $table->string('title');
             $table->string('image')->nullable();
             $table->text('description')->nullable();
-            $table->float('price')->default(0);;
+            $table->float('price')->default(0);
             $table->float('offer')->nullable();		
-            $table->integer('inventory')->default(1);;
+            $table->integer('inventory')->nullable()->default(1);
 
             $table->timestamps();
         });
