@@ -43,12 +43,12 @@ class ProductController extends Controller
 
         $product = Product::create([
             'title' => $request->title,
-            'user_id' => $request->user_id,
-            'image' => $path ?? '',
+            'user_id' => $request->user_id ?? 1,
+            'image' => $path,
             'description' => $request->description,
-            'price' => $request->price ?? 0,
-            'offer' => $request->offer ?? 0,
-            'inventory' => $request->inventory ?? 1,
+            'price' => $request->price,
+            'offer' => $request->offer,
+            'inventory' => $request->inventory,
         ]);
 
         return redirect()->route('products.index')
