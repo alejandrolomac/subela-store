@@ -32,6 +32,8 @@
             {!! $errors->first('inventory', '<div class="invalid-feedback">:message</div>') !!}
         </div>
 
+        <h2>usuario: {{Auth::id()}}</h2>
+
 
     </div>
     <div class="box-footer mt20">
