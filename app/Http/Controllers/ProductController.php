@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -41,15 +42,25 @@ class ProductController extends Controller
   
         request()->validate(Product::$rules);
 
-        $product = Product::create([
-            'title' => $request->input('title'),
-            'user_id' => 2,
-            'image' => $path,
-            'description' => $request->input('description'),
-            'price' => $request->input('price'),
-            'offer' => $request->input('offer'),
-            'inventory' => $request->input('inventory'),
-        ]);
+        // $product = Product::create([
+        //     'title' => $request->input('title'),
+        //     'user_id' => $request->input('user_id') ?? Auth::id(),
+        //     'image' => $path,
+        //     'description' => $request->input('description'),
+        //     'price' => $request->input('price'),
+        //     'offer' => $request->input('offer'),
+        //     'inventory' => $request->input('inventory'),
+        // ]);
+
+        $product = new Product;
+        $product->title => $request->input('title');
+        $product->user_id => $request->input('user_id') ?? Auth::id();
+        $product->image => $path;
+        $product->description => $request->input('description');
+        $product->price => $request->input('price');
+        $product->offer => $request->input('offer');
+        $product->inventory => $request->input('inventory');
+        $product.save();
 
         return redirect()->route('products.index')
             ->with('success', 'El producto se agrego correctamente.');

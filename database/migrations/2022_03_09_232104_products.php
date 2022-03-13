@@ -13,7 +13,7 @@ return new class extends Migration
             $table->bigIncrements('id');
 
             $table->unsignedBigInteger('user_id')->nullable();
-            $table->foreignId('user_id')->references('id')->on('users')->nullable()->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->nullable()->onDelete('cascade');
 
             $table->string('title');
             $table->string('image')->nullable();
