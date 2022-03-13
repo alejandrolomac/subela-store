@@ -22,7 +22,7 @@ class ProductController extends Controller
 
     public function index()
     {
-        $products['products'] = Product::where('user_id','=',Auth::user());
+        $products['products'] = Product::table('users')->where('user_id', Auth::user())->get();
 
         return view('product.index')->with($products);
     }
