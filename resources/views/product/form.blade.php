@@ -30,7 +30,10 @@
             {{ Form::label('Productos en Inventario') }}
             {{ Form::text('inventory', $product->inventory, ['class' => 'form-control' . ($errors->has('inventory') ? ' is-invalid' : ''), 'placeholder' => 'Inventory']) }}
             {!! $errors->first('inventory', '<div class="invalid-feedback">:message</div>') !!}
-            <input id="user_id" name="user_id" type="text" value='{{Auth::id()}}'>
+
+            {{ Form::hidden('user_id', $product->user_id, value = Auth::id()) }}
+
+            <!--<input id="user_id" name="user_id" type="hidden" value='{{ Auth::id() }}'>-->
         </div>
 
     </div>
